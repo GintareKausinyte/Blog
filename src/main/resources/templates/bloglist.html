@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Blog List</title>
+
+<body>
+<form th:action="@{/signOut}" method="post">
+    <button type="submit" class="static-btn" th:text="#{atsijungti}">Sign Out</button>
+</form>
+<a th:href="@{/}" class="static-btn" th:text="#{pagrindinis}">Home</a>
+<a th:href="@{/private/createblog}" th:text="#{kurtiBloga}" class="static-btn">Create Blog</a>
+<a th:href="@{?lang=lt}" class="static-btn">LT</a>
+<a th:href="@{?lang=en}"class="static-btn">EN</a>
+
+<h1 th:href="@{/}" th:text="#{skaitytiIrReadaguoti}">Read and Update</h1>
+<div class="container">
+    <div class="table-header">
+        <h3 th:text="#{pavadinimas}">Title</h3>
+        <h3 th:text="#{autorius}">Author</h3>
+        <h3 th:text="#{veiksmas}">Action</h3>
+    </div>
+    <div th:each="blog : ${blogs}" class="table-row">
+        <span th:text="${blog.title}"></span>
+        <span th:text="${blog.author}"></span>
+
+        <div class="buttons">
+            <h3><a th:href="@{/public/blogs/readblog/{id}(id=${blog.postId})}" class="btn-read" th:text="#{skaityti}">Read</a></h3>
+            <h3><a th:href="@{/private/updateblog/{id}(id=${blog.postId})}" class="btn-read" th:text="#{readaguoti}">Edit</a></h3>
+        </div>
+    </div>
+
+</div>
+<a th:if="${pageNumber!=0}" th:href="@{/public/blogs(pageNumber=${pageNumber-1})}" class="pages" th:text="#{atgal}">Back Page</a>
+<a th:if="${hasNextPage}" th:href="@{/public/blogs(pageNumber=${pageNumber+1})}" class="pages" th:text="#{sekantispsl}">Next Page</a>
+    </body>
+    </html>

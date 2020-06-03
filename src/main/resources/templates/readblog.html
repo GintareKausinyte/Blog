@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../../styles/style.css">
+    <title>Read Blog</title>
+</head>
+<body>
+<a th:href="@{?lang=lt}" class="static-btn">LT</a>
+<a th:href="@{?lang=en}"class="static-btn">EN</a>
+<h1 class="title-name" th:href="@{/}" th:text="#{irasoSkaitymas}">Read The Blog</h1>
+<a th:href="@{/}" th:text="#{pagrindinis}">Home</a>
+
+
+<div class="container">
+    <div class="text-container">
+        <div class="text-format">
+            <h3 th:text="${blog.title}"></h3>
+            <textarea th:text="${blog.description}" readonly rows="10">
+            </textarea>
+            <h5 th:text="${blog.author}"></h5>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
