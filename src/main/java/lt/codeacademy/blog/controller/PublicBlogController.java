@@ -43,7 +43,6 @@ public class PublicBlogController {
         return "redirect:/signIn"; }
 
 
-
     @GetMapping("/blogs")
     public String getAllBlogsByPage(@RequestParam(defaultValue = "0") int pageNumber, Model model, @AuthenticationPrincipal User user) {
         Page<Blog> blogs=blogService.getAllBlogsPaginated(pageNumber);

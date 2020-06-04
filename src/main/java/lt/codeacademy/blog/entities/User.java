@@ -21,12 +21,12 @@ public class User implements UserDetails {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-    @NotEmpty
-    @Column(name = "username")
+
+
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
 
-    @NotEmpty
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
 
