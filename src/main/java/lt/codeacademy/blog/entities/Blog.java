@@ -1,6 +1,7 @@
 package lt.codeacademy.blog.entities;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -16,13 +17,13 @@ public class Blog {
    @Column(name = "post_id")
    private Long postId;
    @Column(name = "title")
-   @NotEmpty(message = "Headline must not be empty")
+   @Length(min = 3, max = 255)
    private String title;
    @Column(name = "description")
-   @NotEmpty(message = "Text field must not be empty")
+   @Length(min = 1, max = 1000)
    private String description;
    @Column(name = "author")
-   @NotEmpty(message = "Author field must not be empty")
+   @Length(min = 3, max = 255)
    private String author;
 
 

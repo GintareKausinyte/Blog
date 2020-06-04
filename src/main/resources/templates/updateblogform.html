@@ -10,7 +10,7 @@
 <body>
 <a th:href="@{?lang=lt}" class="static-btn">LT</a>
 <a th:href="@{?lang=en}"class="static-btn">EN</a>
-        <h1 class="title-name" th:href="@{/}" th:text="#{irasoReadagavimas}">Update Blog</h1>
+        <h1 class="title-name" th:text="#{irasoReadagavimas}">Update Blog</h1>
         <a th:href="@{/}" th:text="#{pagrindinis}">Home</a>
 
 <div class="container">
@@ -37,14 +37,4 @@
 
 </body>
 </html>
-<!--        -->
-<!--        <input type="hidden" th:value="${blog.postId}"/>-->
-<!--        <input class="input-headline" type="text" th:value="${blog.title}">-->
-<!--        <textarea class="input-text" rows="12" cols="2" th:text="${blog.description}"></textarea>-->
-<!--        <input class= "input-name" type="text" th:value="${blog.author}">-->
-<!--        -->
-<!--        <div class="buttonsUpdate">-->
-
-
-<!--            <a class="update-btn" th:href="@{/blogs/updateblog/{id}/delete(id=${blog.postId})}">Delete</a>-->
-<!--            <a class="update-btn" th:href="@{/blogs/updateblog/{id}/update(id=${blog.postId})}">Update</a>-->
+-->

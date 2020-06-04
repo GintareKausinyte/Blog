@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -9,15 +10,14 @@
     <title>Blog List</title>
 
 <body>
-<form th:action="@{/signOut}" method="post">
+<form sec:authorize="isAuthenticated()" th:action="@{/signOut}" method="post" />
     <button type="submit" class="static-btn" th:text="#{atsijungti}">Sign Out</button>
 </form>
 <a th:href="@{/}" class="static-btn" th:text="#{pagrindinis}">Home</a>
-<a th:href="@{/private/createblog}" th:text="#{kurtiBloga}" class="static-btn">Create Blog</a>
 <a th:href="@{?lang=lt}" class="static-btn">LT</a>
 <a th:href="@{?lang=en}"class="static-btn">EN</a>
 
-<h1 th:href="@{/}" th:text="#{skaitytiIrReadaguoti}">Read and Update</h1>
+<h1 th:text="#{skaitytiIrReadaguoti}">Read and Update</h1>
 <div class="container">
     <div class="table-header">
         <h3 th:text="#{pavadinimas}">Title</h3>
@@ -37,5 +37,6 @@
 </div>
 <a th:if="${pageNumber!=0}" th:href="@{/public/blogs(pageNumber=${pageNumber-1})}" class="pages" th:text="#{atgal}">Back Page</a>
 <a th:if="${hasNextPage}" th:href="@{/public/blogs(pageNumber=${pageNumber+1})}" class="pages" th:text="#{sekantispsl}">Next Page</a>
+
     </body>
     </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Registration</title>
+</head>
+<body>
+<a th:href="@{/}" class="static-btn" th:text="#{pagrindinis}">Home</a>
+<a th:href="@{?lang=lt}" class="static-btn">LT</a>
+<a th:href="@{?lang=en}"class="static-btn">EN</a>
+<h1 class="title-name" th:text="#{registracija}">Registration</h1>
+
+    <form th:action="@{/public/registration}" method="post" th:object="${user}">
+        <p th:text="#{vartotojoVardokurimas}">Sukurkite vartotojo vardą</p>
+        <input type="text" th:field="*{username}"/>
+        <p th:text="#{vartotojoSlaptazodziokurimas}">Sukurkite sukurkite slatažodį</p>
+        <input type="password" th:field="*{password}">
+        <input type="submit" th:value="#{pateikti}">
+    </form>
+
+
+</body>
+</html>

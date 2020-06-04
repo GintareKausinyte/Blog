@@ -1,33 +1,38 @@
 package lt.codeacademy.blog.entities;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.util.Arrays;
 import java.util.Collection;
 
 @Data
 @Entity
 @Table(name = "Users")
+
 public class User implements UserDetails {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-
-    @Column(name = "username", nullable = false, unique = true)
+    @NotEmpty
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @NotEmpty
+    @Column(name = "password")
     private String password;
-
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Arrays.asList(new SimpleGrantedAuthority("USER"));
     }
 
     @Override
