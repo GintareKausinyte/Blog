@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -17,13 +18,16 @@ public class Blog {
    @Column(name = "post_id")
    private Long postId;
    @Column(name = "title")
-   @Length(min = 3, max = 255)
+   @NotEmpty
+   @Length(max = 100)
    private String title;
-   @Column(name = "description")
-   @Length(min = 1, max = 1000)
+   @Column(name = "description")//padaryt kad rodytu characteriu skaiciu rasant
+   @NotEmpty
+   @Length(max = 1000)
    private String description;
    @Column(name = "author")
-   @Length(min = 3, max = 255)
+   @NotEmpty
+   @Length(max = 200)
    private String author;
 
 

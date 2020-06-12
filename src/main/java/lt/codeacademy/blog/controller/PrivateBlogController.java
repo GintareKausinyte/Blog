@@ -50,7 +50,7 @@ public class PrivateBlogController {
         model.addAttribute("blog", new Blog());
         return "createblogform";
     }
-    @PostMapping("/updateblog/{id}/update")
+    @PostMapping("/updateblog/{id}")
     public String updateBlog(@Valid Blog blog, BindingResult result, Model model){
         if(result.hasErrors()){
             return "updateblogform";

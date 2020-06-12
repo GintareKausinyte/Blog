@@ -57,6 +57,7 @@ h1{
   }
   .input-text{
     margin: 20px;
+    margin-top:0px;
     border-radius: 5px;
     font-size: 20px;
     resize: none;
@@ -67,7 +68,7 @@ h1{
   .input-headline{
     margin: 20px;
     margin-top: 0px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     height: 40px;
     font-size: 20px;
     border-radius: 5px;

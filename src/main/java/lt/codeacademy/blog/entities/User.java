@@ -8,10 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.Arrays;
 import java.util.Collection;
-
+// kai bus roles, turi atspausdinti userio role frontende
 @Data
 @Entity
 @Table(name = "Users")
@@ -22,11 +23,13 @@ public class User implements UserDetails {
     @Column(name = "user_id")
     private Long id;
 
-
-    @Column(name = "username", unique = true, nullable = false)
+//naudot custom validatoriu// try catch exception
+    @Column(name = "username", unique = true)
+    @NotBlank
     private String username;
-
-    @Column(name = "password", nullable = false)
+//naudot custom validatoriu slapt patikrinimui//NotBlank nepraleidzia tarpu
+    @NotBlank
+    @Column(name = "password")
     private String password;
 
 
